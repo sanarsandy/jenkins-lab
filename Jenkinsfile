@@ -9,14 +9,14 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    docker.build("jenkins-docker-lab:latest")
+                    docker.build("jenkins-lab:latest")
                 }
             }
         }
         stage('Run Container') {
             steps {
                 script {
-                    sh 'docker run -d -p 5000:5000 --name flask-app jenkins-docker-lab:latest'
+                    sh 'docker run -d -p 5000:5000 --name flask-app jenkins-lab:latest'
                 }
             }
         }
